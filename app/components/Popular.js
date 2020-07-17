@@ -13,6 +13,7 @@ function LanguagesNav({selected, onUpdateLanguage}) {
         <li key={language}>
           <button 
           className='btn-clear nav-link'
+          // if the button is equal to selected which it is being passed, turn the color blue
           style={
             language === selected
             ? {color: 'blue'}
@@ -26,7 +27,11 @@ function LanguagesNav({selected, onUpdateLanguage}) {
       ))}
     </ul>
   )
+}
 
+LanguagesNav.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired,
 }
 
 // end  | create component that renders nav list
@@ -38,7 +43,6 @@ class Popular extends React.Component {
     this.state = {
       selectedLanguage: 'All'
     }
-
     this.updateLanguage = this.updateLanguage.bind(this)
   }
 
@@ -63,7 +67,3 @@ class Popular extends React.Component {
 }
 
 export default Popular
-
-Popular.propTypes = {
-  name: PropTypes.string.isRequired
-}
